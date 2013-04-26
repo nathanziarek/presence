@@ -1,0 +1,41 @@
+module.exports = {
+
+    parse: function(data, skipBody) {
+        
+        var Showdown = require("showdown")
+        
+        var converter = new Showdown.converter();
+    
+        var summary = data.match(/{{({[\s\S]*?})}}/);
+        var toReturn = {}, oSummary = { "title": "Late to the Party", "summary": "", "keywords" : [] };
+        
+        if(summary != undefined && summary[1] != null) {
+            try {
+                articleData = JSON.parse(summary[1]);
+                for(key in articleData) {
+                    if(articleData.hasOwnProperty(key)) {
+                        oSummary[key] = articleData[key];
+                    }
+                }
+            } catch(err) { }
+        }
+    
+        if(summary != undefined && summary[0]) {
+            copy = data.replace(summary[0], "");
+        } else {
+            copy = data;
+        }
+        
+        if(!skipBody) {
+            oSummary.copy_orig = copy.trim();
+            oSummary.copy = converter.makeHtml(copy.trim());
+            oSummary.data = data;
+        }
+        
+        title = data.match(/^\#(.*?)$/gim);
+        if(title && title[0]) { oSummary.title = title[0].replace("#", ""); }
+    
+        return oSummary;
+    }
+    
+}

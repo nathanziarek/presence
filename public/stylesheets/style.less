@@ -1,0 +1,72 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,300,700);
+@import "variables";
+@import "glyphs";
+
+
+body {
+  font: 14px "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+  background: @backgroundColor;
+  margin: 0;
+  padding: 0;
+}
+
+.pageContainer, article {
+    width: @pageWidth;
+    margin: 100px auto 0 auto;
+}
+
+.brandWrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: white;
+    .brandContainer {
+        width: 700px;
+        margin: 0 auto;
+        position: relative;
+        a {
+            color: darken(@backgroundColor, 50%);
+            font-size: 20px;
+            line-height: 60px;
+            text-decoration: none;
+        }
+    }
+}
+
+h1 { font-size: @fontSize * 2; font-weight: normal }
+
+h2 { font-size: @fontSize * 1.6 }
+
+h3 { font-size: @fontSize * 1.2 }
+
+.pageContainer {
+    a {
+        padding: 20px;
+        width: 310px;
+        font-size: 20px;
+        border-bottom: darken(@backgroundColor,7%) 1px dotted;
+        text-align: left;
+        text-decoration: none;
+        text-shadow: 0 1 0 lighten(@backgroundColor, 1%);
+        display: block;
+        color: #444;
+        &:nth-child(2n+2) {
+            border-right: none;
+            padding-right: 0;
+        }
+        
+        &:hover {
+            background-color:  rgba(255, 255, 255, .5);
+            box-shadow: 0 0 10px darken(@backgroundColor,7%);
+            border-color:  @backgroundColor;
+        }
+        p { 
+            margin: 0;
+            &.summary {
+                font-size: 13px;
+            }
+        }
+    }
+}

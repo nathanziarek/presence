@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  section(class='pageContainer')
+      each item in links
+          a(href=item.href)
+              p= item.title
+              p(class='summary')= item.summary
+  script(src='/javascripts/packery.js')
+  script
+      var container = document.querySelector('.pageContainer');
+      var pckry = new Packery( container, {
+        itemSelector: '.pageContainer a',
+        gutter: 10
+      });
