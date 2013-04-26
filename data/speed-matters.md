@@ -5,4 +5,4 @@
 
 #Speed Matters
 
-*DRAFT*
+The difference between 2 and 3 seconds waiting for a page to load can be the difference between earning $100 and earning $80.
