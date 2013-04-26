@@ -11,13 +11,7 @@ var presence = require('../scripts/presence.js');
         
         fs.readFile(file, "utf-8", function(err, data) {
             if (err) { res.redirect(301, "/"); return; };
-            res.etagify();
+            //res.etagify();
             res.render("article", presence.parse(data));
         });
     };
-    
-
-/* function(req, res) {
-  res.etagify();
-  res.send("pulitzer prize. bam.");
-}*/        

@@ -70,7 +70,7 @@ exports.render = function(req, res){
                     });
                 }
                 var xml = feed.xml();
-                res.etagify();
+                //res.etagify();
                 res.send(xml);
                 
             });
@@ -80,14 +80,3 @@ exports.render = function(req, res){
 
                 
 };
-
-    
-    //[{"href":"/testing-123",
-    //"file":"testing-123.md",
-    //"modified":"2013-04-17T23:25:24.000Z",
-    //"title":"Story about nothing"}]
-
-/* function(req, res) {
-  
-  res.send("pulitzer prize. bam.");
-}*/        
