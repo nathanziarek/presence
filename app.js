@@ -18,7 +18,7 @@ var app = module.exports = express();
 app.configure(function(){
   app.use(express.compress());
   app.use(express.staticCache());
-  app.use(express.static(path.join(__dirname, 'public'), {maxAge: 365 * 24 * 60 * 60 * 1000 }));
+  app.use(express.static(path.join(__dirname, 'public'), {maxAge: 2592000000 }));
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
@@ -28,10 +28,10 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(app.router);
   
-  app.use(require('less-middleware')({ 
-      src: __dirname + '/public',
-      compress: true
-  }));  
+  //app.use(require('less-middleware')({ 
+  //    src: __dirname + '/public',
+  //    compress: true
+  //}));  
 });
 
 app.configure('development', function(){
