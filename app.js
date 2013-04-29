@@ -8,16 +8,13 @@ var express = require('express')
   , article = require('./routes/articles')
   , rss = require('./routes/rss')
   , http = require('http')
-  , path = require('path')
-
+  , path = require('path');
+  
 var app = module.exports = express();
-
-  app.use(express.compress());
-
 
 app.configure(function(){
   app.use(express.logger('dev'));
-  //app.use(express.cache());
+  app.use(express.compress());
   app.use(express.methodOverride());
   app.use(express.static(path.join(__dirname, 'public'), {"maxAge": 30*24*60*60*1000 }));
   app.set('port', process.env.PORT || 3000);
