@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -24,7 +23,7 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(app.router);
   
-  //app.use(require('less-middleware')({ src: __dirname + '/public', compress: true }));
+  app.use(require('less-middleware')({ src: __dirname + '/public/style', compress: true }));
   
 });
 
