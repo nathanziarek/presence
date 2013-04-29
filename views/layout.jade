@@ -12,6 +12,14 @@ html
     meta(name="twitter:creator", content="@nathanziarek")
     meta(name="twitter:domain", content="latetotheparty.co")
     title= title
+    script
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-38685832-1', 'latetotheparty.co');
+      ga('send', 'pageview');
+  link(rel='canonical', href= canonical)
   body
       block content
       div(class='brandWrap')
@@ -21,6 +29,6 @@ html
                   a(href='https://plus.google.com/108120786603469208780/?rel=author', class='google') g
                       span Google+
                   a(class='twitter', href='http://twitter.com/nathanziarek') t
-                      span Twitter               
+                      span Twitter
                   a(class='linkedin', href='http://linkedin/in/nathanziarek') l
                       span LinkedIn

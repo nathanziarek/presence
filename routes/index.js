@@ -14,7 +14,8 @@ exports.index = function(req, res){
             title: "Late to the Party", 
             keywords:[], 
             summary: "Just how far behind am I?", 
-            links: nodes
+            links: nodes,
+            canonical: "http://latetotheparty.co"
         });
     });
     

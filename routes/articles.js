@@ -12,6 +12,8 @@ var presence = require('../scripts/presence.js');
         fs.readFile(file, "utf-8", function(err, data) {
             if (err) { res.redirect(301, "/"); return; };
             //res.etagify();
-            res.render("article", presence.parse(data));
+            articleData = presence.parse(data);
+            articleData.canonical = "http://latetotheparty.co/" + key
+            res.render("article", articleData);
         });
     };
