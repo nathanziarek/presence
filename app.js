@@ -15,6 +15,7 @@ app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.compress());
   app.use(express.methodOverride());
+  app.use(require('less-middleware')({ src: __dirname + '/public/style', compress: true }));
   app.use(express.static(path.join(__dirname, 'public'), {"maxAge": 30*24*60*60*1000 }));
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
@@ -22,9 +23,6 @@ app.configure(function(){
   //app.use(express.favicon());
   app.use(express.bodyParser());
   app.use(app.router);
-  
-  app.use(require('less-middleware')({ src: __dirname + '/public/style', compress: true }));
-  
 });
 
 app.configure('development', function(){
