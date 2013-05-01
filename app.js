@@ -14,8 +14,8 @@ var app = module.exports = express();
 app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.compress());
+  app.use(require('less-middleware')({ optimization:2, dest: __dirname + '/public', src: __dirname + '/public', compress: true }));
   app.use(express.methodOverride());
-  app.use(require('less-middleware')({ dest: __dirname + '/public/style', src: __dirname + '/public/style', compress: true }));
   app.use(express.static(path.join(__dirname, 'public'), {"maxAge": 30*24*60*60*1000 }));
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');

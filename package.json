@@ -13,7 +13,8 @@
     "connect" : "2.x",
     "feed" : "0.1.4",
     "github": "*",
-    "rss": "*"
+    "rss": "*",
+    "typogr": "*"
   },
   "engine": "node 0.8.2",
   "engines": { "node": "0.8.2" }
