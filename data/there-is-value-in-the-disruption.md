@@ -1,5 +1,5 @@
 {{{
-  "summary": "Usability practitioners pride ourselves on reducing friction",
+  "summary": "Making things objectively better may not always equal better usability.",
   "keywords": ["search", "facets", "ux"]
 }}}
 
