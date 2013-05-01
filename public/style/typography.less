@@ -1,0 +1,41 @@
+@import "variables";
+@textBaseColor: darken(desaturate(@baseColor, 90%), 5%);
+
+
+body {
+    font-size: @fontSize;
+    font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+
+article {
+    h1 { .heading(1); }
+    h2 { .heading(2); }
+    h3 { .heading(3); }
+    p {
+        line-height: @fontSize * 1.9;
+        color: darken(@textBaseColor, 10%);
+        b, strong {
+            font-weight: 600;
+            color: darken(@textBaseColor, 25%);
+        }
+        a {
+            color: lighten(@baseColor, 10%);
+            text-decoration: none;
+            &:hover {
+                color: lighten(@baseColor, 20%);
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+
+/* Utilities */
+    
+    .heading(@n) {
+        font-size: (@fontSize * (2.4 - (@n * .4)));
+        font-weight: 300;
+        color: @textBaseColor;
+        margin: 10px 0;
+    }

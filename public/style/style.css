@@ -1,16 +1,19 @@
-@font-face{font-family:'icomoon';src:url('../fonts/icomoon.eot');src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),url('../fonts/icomoon.woff') format('woff'),url('../fonts/icomoon.ttf') format('truetype'),url('../fonts/icomoon.svg#icomoon') format('svg');font-weight:normal;font-style:normal;}[data-icon]:before{font-family:'icomoon';content:attr(data-icon);speak:none;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;}
+body{font-size:14px;font-family:"Open Sans",Helvetica Neue,Helvetica,Arial,sans-serif;font-weight:400;}
+article h1{font-size:28px;font-weight:300;color:#595959;margin:10px 0;}
+article h2{font-size:22.4px;font-weight:300;color:#595959;margin:10px 0;}
+article h3{font-size:16.799999999999997px;font-weight:300;color:#595959;margin:10px 0;}
+article p{line-height:26.599999999999998px;color:#404040;}article p b,article p strong{font-weight:600;color:#1a1a1a;}
+article p a{color:#407fbf;text-decoration:none;}article p a:hover{color:#6699cc;text-decoration:underline;}
+@font-face{font-family:'icomoon';src:url('../fonts/icomoon.eot');src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),url('../fonts/icomoon.svg#icomoon') format('svg'),url('../fonts/icomoon.woff') format('woff'),url('../fonts/icomoon.ttf') format('truetype');font-weight:normal;font-style:normal;}[data-icon]:before{font-family:'icomoon';content:attr(data-icon);speak:none;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;}
 .icon-google-plus,.icon-twitter,.icon-linkedin{font-family:'icomoon';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;}
 .icon-google-plus:before{content:"\67";}
 .icon-twitter:before{content:"\74";}
 .icon-linkedin:before{content:"\6c";}
 .brandWrap .brandContainer .social{font-family:'icomoon';speak:none;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;position:absolute;top:0;right:0;}.brandWrap .brandContainer .social span{display:none;}
 .brandWrap .brandContainer .social a{display:inline-block;padding:0 10px;color:#d6d6d6;}.brandWrap .brandContainer .social a:hover{color:#8c8c8c;}
-body{font:14px "Open Sans",Helvetica Neue,Helvetica,Arial,sans-serif;background:#f2f2f2;margin:0;padding:0;}
+body{background:#f2f2f2;margin:0;padding:0;}
 .pageContainer,article{width:700px;margin:100px auto 0 auto;}
-.brandWrap{position:fixed;top:0;left:0;right:0;height:60px;background:white;}.brandWrap .brandContainer{width:700px;margin:0 auto;position:relative;}.brandWrap .brandContainer a{color:#737373;font-size:20px;line-height:60px;text-decoration:none;}
-h1{font-size:28px;font-weight:normal;}
-h2{font-size:22.400000000000002px;}
-h3{font-size:16.8px;}
+.brandWrap{position:fixed;top:0;left:0;right:0;height:60px;background:white;}.brandWrap .brandContainer{width:700px;margin:0 auto;position:relative;}.brandWrap .brandContainer a{color:#737373;font-size:20px;line-height:60px;text-decoration:none;font-weight:300;}
 .pageContainer a{padding:20px;width:310px;font-size:20px;border-bottom:#e0e0e0 1px dotted;text-align:left;text-decoration:none;text-shadow:0 1 0 #f5f5f5;display:block;color:#444;}.pageContainer a:nth-child(2n+2){border-right:none;padding-right:0;}
 .pageContainer a:hover{background-color:rgba(255, 255, 255, 0.5);box-shadow:0 0 10px #e0e0e0;border-color:#f2f2f2;}
 .pageContainer a p{margin:0;}.pageContainer a p.summary{font-size:13px;}
