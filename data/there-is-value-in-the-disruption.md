@@ -19,5 +19,5 @@ Today while reading [Search Patterns][2], I came across this same idea with rega
 
 It's a fascinating idea. Making things objectively better may not always equal better usability.
 
-[1]: /speed-matters Speed Matters at Late to the Party
+[1]: /speed-matters "Speed Matters at Late to the Party"
 [2]: http://www.amazon.com/gp/product/0596802277/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=0596802277&linkCode=as2&tag=lattothepar07-20
