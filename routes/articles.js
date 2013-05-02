@@ -7,7 +7,7 @@ var presence = require('../scripts/presence.js');
     exports.render = function(req, res){
     
         var key = req.url.replace(/^\//, "");
-        var file = path.normalize(path.join(__dirname, "../", "data", key) + ".md");
+        var file = path.normalize(path.join(__dirname, "../", "cache", key) + ".md");
         
         fs.readFile(file, "utf-8", function(err, data) {
             if (err) { res.redirect(301, "/"); return; };

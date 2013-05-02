@@ -10,8 +10,8 @@ exports.render = function(req, res){
 
     var filesList = [], dataArray = [];
 
-    var dataIndex = path.normalize(path.join(__dirname, "..", "data", "_index"));
-    var dataDir = path.normalize(path.join(__dirname, "..", "data"));
+    var dataIndex = path.normalize(path.join(__dirname, "..", "cache", "_index"));
+    var dataDir = path.normalize(path.join(__dirname, "..", "cache"));
     
     // File List 01
     fs.readdir(dataDir, function(err, files){
@@ -36,7 +36,7 @@ exports.render = function(req, res){
         console.log("getAndPush");
         f = filesList.pop();
         if(f) {
-            file = path.normalize(path.join(__dirname, "..", "data", f));
+            file = path.normalize(path.join(__dirname, "..", "cache", f));
             fs.readFile(file, "utf-8", function(err, data) {
                 if (err) { return; };
                 data = presence.parse(data);
@@ -51,7 +51,7 @@ exports.render = function(req, res){
                 getAndPush(); return;
             });
         } else {
-            file = path.normalize(path.join(__dirname, "..", "data", "_index"));
+            file = path.normalize(path.join(__dirname, "..", "cache", "_index"));
             fs.writeFile(file, JSON.stringify(dataArray), function (err) {
                 if (err) { return }
                 var feed = new rss({

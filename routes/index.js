@@ -6,7 +6,7 @@ var fs = require("fs"),
 
 exports.index = function(req, res){
 
-    var index = path.normalize(path.join(__dirname, "..", "data", "_index"));
+    var index = path.normalize(path.join(__dirname, "..", "cache", "_index"));
     
     fs.readFile(index, "utf-8", function(err, data) {
         nodes = JSON.parse(data);
