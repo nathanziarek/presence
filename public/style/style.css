@@ -2,8 +2,12 @@ body{font-size:14px;font-family:"Open Sans",Helvetica Neue,Helvetica,Arial,sans-
 article h1{font-size:28px;font-weight:300;color:#595959;margin:10px 0;}
 article h2{font-size:22.4px;font-weight:300;color:#595959;margin:10px 0;}
 article h3{font-size:16.799999999999997px;font-weight:300;color:#595959;margin:10px 0;}
-article p{line-height:26.599999999999998px;color:#404040;}article p b,article p strong{font-weight:600;color:#1a1a1a;}
-article p a{color:#407fbf;text-decoration:none;}article p a:hover{color:#6699cc;text-decoration:underline;}
+article p,article li{line-height:26.599999999999998px;color:#404040;}article p b,article li b,article p strong,article li strong{font-weight:600;color:#1a1a1a;}
+article p i,article li i,article p em,article li em{font-style:italic;}
+article p a,article li a{color:#407fbf;text-decoration:none;}article p a:hover,article li a:hover{color:#6699cc;text-decoration:underline;}
+article p:nth-child(2),article li:nth-child(2){font-size:18px;line-height:30.599999999999998px;font-weight:300;}
+article blockquote{border-left:2px #cccccc solid;padding-left:20px;margin:10px 20px;font-style:italic;}article blockquote cite{display:block;}article blockquote cite:before{content:"—";}
+article blockquote i,article blockquote em{font-style:normal;}
 @font-face{font-family:'icomoon';src:url('../fonts/icomoon.eot');src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),url('../fonts/icomoon.svg#icomoon') format('svg'),url('../fonts/icomoon.woff') format('woff'),url('../fonts/icomoon.ttf') format('truetype');font-weight:normal;font-style:normal;}[data-icon]:before{font-family:'icomoon';content:attr(data-icon);speak:none;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;}
 .icon-google-plus,.icon-twitter,.icon-linkedin{font-family:'icomoon';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;}
 .icon-google-plus:before{content:"\67";}

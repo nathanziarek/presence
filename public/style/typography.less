@@ -19,6 +19,9 @@ article {
             font-weight: 600;
             color: darken(@textBaseColor, 25%);
         }
+        i, em {
+            font-style: italic;
+        }
         a {
             color: lighten(@baseColor, 10%);
             text-decoration: none;
@@ -26,6 +29,11 @@ article {
                 color: lighten(@baseColor, 20%);
                 text-decoration: underline;
             }
+        }
+        &:nth-child(2) {
+            font-size:  @fontSize + 4;
+            line-height: (@fontSize + 4) * 1.7;
+            font-weight:  300;
         }
     }
     blockquote {
