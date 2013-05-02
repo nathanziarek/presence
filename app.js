@@ -5,7 +5,7 @@
 var express = require('express')
   , routes = require('./routes')
   , article = require('./routes/articles')
-  , rss = require('./routes/rss')
+  , output = require('./routes/output')
   , http = require('http')
   , path = require('path');
   
@@ -30,7 +30,8 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-app.get('/rss', rss.render);
+app.get('/rss', output.rss);
+app.get('/sitemap', output.sitemap);
 app.get('/:article', article.render);
 
 http.createServer(app).listen(app.get('port'), function(){

@@ -1,22 +1,48 @@
 var fs = require("fs"),
     path = require("path"),
-    rss = require('rss');
-    
+    rss = require('rss'),
+    sm = require('sitemap');
+
+var dataDir = path.normalize(path.join(__dirname, "..", "cache"));
     
 var presence = require('../scripts/presence.js');
 
+exports.sitemap = function(req, res) {
 
-exports.render = function(req, res){
+    var urls = [{ url: "/", changefreq: "daily", priority: 1 }];
+
+    fs.readdir(dataDir, function(err, files){
+        
+        if(err) { return; }
+        
+        for(var i = 0; i < files.length; i++) {
+            if(files[i] != "_index" && files[i] != ".DS_Store") {
+                urls.push({ url: "/" + files[i].replace(".md", ""), changefreq: "monthly", priority: .7 });
+            }
+        }
+        
+        sitemap = sm.createSitemap({
+            hostname: "http://latetotheparty.co",
+            cacheTime: 600000,
+            urls: urls
+        });
+        
+        res.header('Content-Type', 'application/xml');
+        res.send( sitemap.toString() );
+        
+    });
+
+}
+
+
+exports.rss = function(req, res){
 
     var filesList = [], dataArray = [];
 
     var dataIndex = path.normalize(path.join(__dirname, "..", "cache", "_index"));
-    var dataDir = path.normalize(path.join(__dirname, "..", "cache"));
     
     // File List 01
     fs.readdir(dataDir, function(err, files){
-    
-        console.log("01", files);
         
         if(err) { return; }
         
@@ -33,7 +59,6 @@ exports.render = function(req, res){
     });
     
     function getAndPush(){
-        console.log("getAndPush");
         f = filesList.pop();
         if(f) {
             file = path.normalize(path.join(__dirname, "..", "cache", f));
