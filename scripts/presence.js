@@ -40,6 +40,10 @@ module.exports = {
         if(title && title[0]) { oSummary.title = title[0].replace("#", ""); }
     
         return oSummary;
-    }
+    },
+    
+    getFromGitHub: function(filename) {},
+    
+    reIndex: function() {}
     
 }
