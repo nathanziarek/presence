@@ -6,6 +6,7 @@ var express = require('express')
   , routes = require('./routes')
   , article = require('./routes/articles')
   , output = require('./routes/output')
+  , input = require('./routes/input')
   , http = require('http')
   , path = require('path');
   
@@ -30,6 +31,7 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
+app.get('/ping/github', input.github);
 app.get('/rss', output.rss);
 app.get('/sitemap', output.sitemap);
 app.get('/:article', article.render);
