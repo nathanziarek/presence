@@ -31,7 +31,7 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-app.get('/ping-github', input.github);
+app.post('/ping/github', input.github);
 app.get('/rss', output.rss);
 app.get('/sitemap', output.sitemap);
 app.get('/:article', article.render);

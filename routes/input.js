@@ -8,9 +8,9 @@ var dataDir = path.normalize(path.join(__dirname, "..", "cache"));
 exports.github = function(req, res) {
     
     console.log("Request Received");
-    console.log(req, res);
+    console.log(req.body)
     
-    var body = "";
+    /*var body = "";
     req.on('data', function (chunk) {
       body += chunk;
     });
@@ -18,7 +18,7 @@ exports.github = function(req, res) {
       console.log('POSTed: ' + body);
       res.writeHead(200);
       res.end(postHTML);
-    });
+    });*/
     
     // get the request
     // turn it into a JSON object
