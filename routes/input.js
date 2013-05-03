@@ -7,8 +7,25 @@ var dataDir = path.normalize(path.join(__dirname, "..", "cache"));
 
 exports.github = function(req, res) {
     
-    console.log("Request Received");
-    console.log(JSON.parse(req.body.payload))
+    var payload = (JSON.parse(req.body.payload)),
+        commit, addition, changed, removed;
+    
+    for( var c = 0; c < payload.commits.length; c++ ) {
+        commit = payload.commits[i];
+        for( var a = 0; a < commit.added.length; a++ ) {
+            addition = commit.added[a];
+            console.log("New File", addition);
+        }
+        for( var a = 0; a < commit.modified.length; a++ ) {
+            changed = commit.modified[a];
+            console.log("Changed File", changed);
+        }
+        for( var a = 0; a < commit.removed.length; a++ ) {
+            removed = commit.removed[a];
+            console.log("Deleted File", removed);
+        }
+        
+    }
     
     /*var body = "";
     req.on('data', function (chunk) {
