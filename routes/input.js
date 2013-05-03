@@ -11,17 +11,17 @@ exports.github = function(req, res) {
         commit, addition, changed, removed;
     
     for( var c = 0; c < payload.commits.length; c++ ) {
-        commit = payload.commits[i];
+        commit = payload.commits[c];
         for( var a = 0; a < commit.added.length; a++ ) {
             addition = commit.added[a];
             console.log("New File", addition);
         }
-        for( var a = 0; a < commit.modified.length; a++ ) {
-            changed = commit.modified[a];
+        for( var m = 0; m < commit.modified.length; m++ ) {
+            changed = commit.modified[m];
             console.log("Changed File", changed);
         }
-        for( var a = 0; a < commit.removed.length; a++ ) {
-            removed = commit.removed[a];
+        for( var r = 0; r < commit.removed.length; r++ ) {
+            removed = commit.removed[r];
             console.log("Deleted File", removed);
         }
         
