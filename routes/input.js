@@ -33,7 +33,7 @@ exports.github = function(req, res) {
     
         for( var r = 0; r < commit.removed.length; r++ ) {
             removed = commit.removed[r];
-            console.log("Deleted File", removed);
+            console.log("Deleted File", removed);;
         }
         
     }
