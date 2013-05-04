@@ -1,11 +1,9 @@
-var path = require("path");
-        
 var presence = require('../scripts/presence.js');
 
 exports.github = function(req, res) {
     
     var payload = (JSON.parse(req.body.payload)),
-        commit, addition, changed, removed;
+        commit;
     
     for( var c = 0; c < payload.commits.length; c++ ) {
     

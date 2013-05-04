@@ -1,9 +1,12 @@
 var fs = require("fs"),
-    path = require("path");
+    path = require("path"),
+    cache = path.normalize(path.join(__dirname, "..", "cache")),
+    githubInfo = {
+        user:"nathanziarek", 
+        repo: "late-to-the-party"
+    };
 
 module.exports = {
-
-    cache: path.normalize(path.join(__dirname, "..", "cache")),
 
     parse: function(data, skipBody) {
         
@@ -48,17 +51,17 @@ module.exports = {
     },
         
     getFromGitHub: function(filename, type) {
+        console.log("getFromGitHub()", filename, type);
+        
         var GitHubApi = require("github"),
             github = new GitHubApi({
                 version: "3.0.0",
                 timeout: 5000
             });
             
-        github.getContent({
-            user:"nathanziarek", 
-            repo: "late-to-the-party", 
-            path: filename 
-            }, 
+        githubInfo.path = filename;
+            
+        github.getContent(githubInfo, 
             function(err, data){ 
                 if (err) { console.log(err); return }
                 filePath = path.join(this.cache, "github", data.path);
