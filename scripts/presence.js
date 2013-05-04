@@ -64,7 +64,7 @@ module.exports = {
         github.repos.getContent(githubInfo, 
             function(err, data){ 
                 if (err) { console.log(err); return }
-                filePath = path.join(this.cache, "github", data.path);
+                filePath = path.join(cache, "github", data.path);
                 fileContents = new Buffer(data.content, data.encoding).toString('utf8');
                 fs.writeFile(filePath, fileContents, {"encoding": "utf8"}, function(err) {
                     console.log(filePath, fileContents);
