@@ -65,6 +65,8 @@ module.exports = {
                 fileContents = new Buffer(data.content, data.encoding).toString('utf8');
                 fs.writeFile(filePath, fileContents, {"encoding": "utf8"}, function(err) {
                     console.log(filePath, fileContents);
+                    //notify Twitter
+                    //notify the re-indexer
                 });
             });
             
