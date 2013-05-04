@@ -1,3 +1,6 @@
+var fs = require("fs"),
+    path = require("path");
+
 module.exports = {
 
     cache: path.normalize(path.join(__dirname, "..", "cache")),
@@ -49,9 +52,8 @@ module.exports = {
             github = new GitHubApi({
                 version: "3.0.0",
                 timeout: 5000
-            }),
-            fs = require("fs"),
-            path = require("path");
+            });
+            
         github.getContent({
             user:"nathanziarek", 
             repo: "late-to-the-party", 
