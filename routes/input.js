@@ -1,14 +1,6 @@
-var fs = require("fs"),
-    path = require("path"),
-    GitHubApi = require("github"),
-    github = new GitHubApi({
-        version: "3.0.0",
-        timeout: 5000
-    });
+var path = require("path");
         
 var presence = require('../scripts/presence.js');
-
-var dataDir = path.normalize(path.join(__dirname, "..", "cache"));
 
 exports.github = function(req, res) {
     
@@ -20,22 +12,16 @@ exports.github = function(req, res) {
         commit = payload.commits[c];
     
         for( var a = 0; a < commit.added.length; a++ ) {
-            addition = commit.added[a];
-            console.log("New File", addition);
-            github.getContent({user:"nathanziarek", repo: "late-to-the-party", path: addition}, function(err, data){ console.log(data); });
+            presence.getFromGitHub(commit.added[a], "added");
         }
     
-        for( var m = 0; m < commit.modified.length; m++ ) {
-            changed = commit.modified[m];
-            console.log("Changed File", changed);
-            github.repos.getContent({user:"nathanziarek", repo: "late-to-the-party", path: changed}, function(err, data){ 
-                console.log(new Buffer(data.content, data.encoding).toString('utf8'));
-            });
+        for( var a = 0; a < commit.modified.length; a++ ) {
+            presence.getFromGitHub(commit.modified[a], "modified");
         }
     
-        for( var r = 0; r < commit.removed.length; r++ ) {
+        for( var a = 0; a < commit.removed.length; a++ ) {
             removed = commit.removed[r];
-            console.log("Deleted File", removed);;
+            presence.removeFromCache(commit.removed[a]);
         }
         
     }

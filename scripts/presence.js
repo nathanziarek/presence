@@ -1,5 +1,7 @@
 module.exports = {
 
+    cache: path.normalize(path.join(__dirname, "..", "cache")),
+
     parse: function(data, skipBody) {
         
         var Showdown = require("showdown"),
@@ -41,8 +43,33 @@ module.exports = {
     
         return oSummary;
     },
+        
+    getFromGitHub: function(filename, type) {
+        var GitHubApi = require("github"),
+            github = new GitHubApi({
+                version: "3.0.0",
+                timeout: 5000
+            }),
+            fs = require("fs"),
+            path = require("path");
+        github.getContent({
+            user:"nathanziarek", 
+            repo: "late-to-the-party", 
+            path: addition 
+            }, 
+            function(err, data){ 
+                if (err) { console.log(err); return }
+                filePath = path.join(this.cache, "github", data.path);
+                fileContents = new Buffer(data.content, data.encoding).toString('utf8');
+                fs.writeFile(filePath, fileContents, {"encoding": "utf8"}, function(err) {
+                    console.log(filePath, fileContents);
+                });
+            });
+            
+        
+    },
     
-    getFromGitHub: function(filename) {},
+    removeFromCache: function(filename) {},
     
     reIndex: function() {}
     
