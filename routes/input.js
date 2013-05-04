@@ -28,7 +28,10 @@ exports.github = function(req, res) {
         for( var m = 0; m < commit.modified.length; m++ ) {
             changed = commit.modified[m];
             console.log("Changed File", changed);
-            github.repos.getContent({user:"nathanziarek", repo: "late-to-the-party", path: changed}, function(err, data){ console.log(data); res.end(data); });
+            github.repos.getContent({user:"nathanziarek", repo: "late-to-the-party", path: changed}, function(err, data){ 
+                f=JSON.parse(data);
+                console.log(new Buffer(f.content, f.encoding).toString('utf8'));
+            });
         }
     
         for( var r = 0; r < commit.removed.length; r++ ) {
