@@ -61,7 +61,7 @@ module.exports = {
             
         githubInfo.path = filename;
             
-        github.getContent(githubInfo, 
+        github.repos.getContent(githubInfo, 
             function(err, data){ 
                 if (err) { console.log(err); return }
                 filePath = path.join(this.cache, "github", data.path);
