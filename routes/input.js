@@ -28,7 +28,7 @@ exports.github = function(req, res) {
         for( var m = 0; m < commit.modified.length; m++ ) {
             changed = commit.modified[m];
             console.log("Changed File", changed);
-            github.getContent({user:"nathanziarek", repo: "late-to-the-party", path: addition}, function(err, data){ console.log(data); });
+            github.repos.getContent({user:"nathanziarek", repo: "late-to-the-party", path: addition}, function(err, data){ console.log(data); res.end(data); });
         }
     
         for( var r = 0; r < commit.removed.length; r++ ) {
