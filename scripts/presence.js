@@ -57,7 +57,7 @@ module.exports = {
         github.getContent({
             user:"nathanziarek", 
             repo: "late-to-the-party", 
-            path: addition 
+            path: filename 
             }, 
             function(err, data){ 
                 if (err) { console.log(err); return }
