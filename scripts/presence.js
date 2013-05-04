@@ -51,7 +51,7 @@ module.exports = {
     },
         
     getFromGitHub: function(filename, type) {
-        console.log("getFromGitHub()", filename, type);
+        console.log(cache, "getFromGitHub()", filename, type);
         
         var GitHubApi = require("github"),
             github = new GitHubApi({
