@@ -18,7 +18,6 @@ exports.github = function(req, res) {
         }
     
         for( var a = 0; a < commit.removed.length; a++ ) {
-            removed = commit.removed[r];
             presence.removeFromCache(commit.removed[a]);
         }
         
