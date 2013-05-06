@@ -15,7 +15,7 @@ exports.github = function(req, res) {
             data = presence.getFromGitHub(commit.added[a]);
             data = presence.parse(data);
             
-            data.file = presence.createFileId(data.title)
+            data.file = presence.createFileId(data.title);
             
             //fs.writeFile(data.file, data);
             

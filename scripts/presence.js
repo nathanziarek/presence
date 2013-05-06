@@ -12,7 +12,7 @@ module.exports = {
     createFileId: function(title) {
         fileId = title.toLowerCase().replace(/[^\w\d]+/gim, "-");
         if(process.index[fileId] != undefined) {
-            module.exports.createFileId(title + " " + ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"][Math.floor(Math.random()*26)];
+            module.exports.createFileId(title + " " + ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"][Math.floor(Math.random()*26)]);
         } else {
             return fileId + ".json";
         }
