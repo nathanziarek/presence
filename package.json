@@ -16,7 +16,7 @@
     "rss": "*",
     "sitemap": "*",
     "typogr": "*",
-    "node-walk": "*",
+    "wrench": "*",
     "fs-extra": "*"
   },
   "engine": "node 0.8.2",
