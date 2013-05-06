@@ -79,10 +79,14 @@ module.exports = {
     removeFromCache: function(filename) {},
     
     reIndex: function() {
-        var files = wrench.readdirSyncRecursive(cache);
+        var files = wrench.readdirSyncRecursive(cache),
+            indexAr = [];
         for( var i = 0; i < files.length; i++) {
-            console.log(files[i]);
+            console.log(__dirname, files[i]);
+            //if files[i].indexOf("md") then...
+            //indexArr.push(module.exports.parse(fs.readFileSync(path.join(cache, files[i]), {"encoding", "utf8"), true));
         }
+        //fs.writeFile(path.join(cache, "_index"), JSON.stringify(indexArr), function(){});
         // Loop through all the files in cache
         // pull out the md
         // parse them
