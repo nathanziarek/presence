@@ -78,6 +78,16 @@ module.exports = {
     
     removeFromCache: function(filename) {},
     
-    reIndex: function() {}
+    reIndex: function() {
+        var files = wrench.readdirSyncRecursive(cache);
+        for( var i = 0; i < files.length; i++) {
+            console.log(files[i]);
+        }
+        // Loop through all the files in cache
+        // pull out the md
+        // parse them
+        // build an object full of info
+        // write it to _index
+    }
     
 }
