@@ -1,4 +1,4 @@
-var fs = require("fs"),
+var fs = require("fs-extra"),
     path = require("path"),
     cache = path.normalize(path.join(__dirname, "..", "cache")),
     githubInfo = {
@@ -66,11 +66,13 @@ module.exports = {
                 if (err) { console.log(err); return }
                 filePath = path.join(cache, "github", data.path);
                 fileContents = new Buffer(data.content, data.encoding).toString('utf8');
-                fs.writeFile(filePath, fileContents, {"encoding": "utf8"}, function(err) {
-                    console.log(filePath, fileContents);
-                    //notify Twitter
-                    //notify the re-indexer
-                });
+                fs.createFile(filePath, function(err) {
+                    fs.writeFile(filePath, fileContents, {"encoding": "utf8"}, function(err) {
+                        console.log(filePath, fileContents);
+                        //notify Twitter
+                        //notify the re-indexer
+                    });
+                }
             });
             
         

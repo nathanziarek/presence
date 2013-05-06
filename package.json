@@ -15,7 +15,8 @@
     "github": "*",
     "rss": "*",
     "sitemap": "*",
-    "typogr": "*"
+    "typogr": "*",
+    "fs-extra": "*"
   },
   "engine": "node 0.8.2",
   "engines": { "node": "0.8.2" }
