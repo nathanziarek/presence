@@ -68,7 +68,7 @@ module.exports = {
                 fs.outputFile(filePath, fileContents, {"encoding": "utf8"}, function(err) {
                     //console.log(filePath, fileContents);
                     //if type=add, notify Twitter
-                    presence.reIndex();
+                    this.reIndex();
                 });
             });
             
