@@ -9,6 +9,15 @@ var fs = require("fs-extra"),
 
 module.exports = {
 
+    createFileId: function(title) {
+        fileId = title.toLowerCase().replace(/[^\w\d]+/gim, "-");
+        if(process.index[fileId] != undefined) {
+            module.exports.createFileId(title + " " + ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"][Math.floor(Math.random()*26)];
+        } else {
+            return fileId + ".json";
+        }
+    },
+
     parse: function(mdText, skipBody) {
         
         var Showdown = require("showdown"),
@@ -29,6 +38,10 @@ module.exports = {
                 }
             } catch(err) { }
         }
+        
+        if(oSummary['published-on'] == undefined) { oSummary['published-on'] = new Date(); }
+        
+        oSummary['published-on'] = new Date(oSummary['published-on']);
     
         if(summary != undefined && summary[0]) {
             copy = mdText.replace(summary[0], "");
@@ -37,13 +50,15 @@ module.exports = {
         }
         
         if(!skipBody) {
-            oSummary.copy_orig = copy.trim();
+            //oSummary.copy_orig = copy.trim();
             oSummary.copy = typogr.typogrify(converter.makeHtml(copy.trim()));
-            oSummary.mdText = mdText;
+            //oSummary.mdText = mdText;
         }
         
         title = mdText.match(/^\#(.*?)$/gim);
         if(title && title[0]) { oSummary.title = title[0].replace("#", ""); }
+    
+        console.log(oSummary);
     
         return oSummary;
     },

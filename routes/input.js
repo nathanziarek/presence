@@ -13,8 +13,13 @@ exports.github = function(req, res) {
     
         for( var a = 0; a < commit.added.length; a++ ) {
             data = presence.getFromGitHub(commit.added[a]);
-            process.index.push( presence.parse(data, true) );
-            console.log(process.index);
+            data = presence.parse(data);
+            
+            data.file = presence.createFileId(data.title)
+            
+            //fs.writeFile(data.file, data);
+            
+            console.log(data.file);
             data = presence.parse(data);
             
             // what is the file name going to be?
