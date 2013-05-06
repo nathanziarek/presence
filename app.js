@@ -10,6 +10,10 @@ var express = require('express')
   , http = require('http')
   , path = require('path');
   
+  
+/* Globals */
+process.index = require('./cache/_index.json');
+  
 var app = module.exports = express();
 
 app.configure(function(){

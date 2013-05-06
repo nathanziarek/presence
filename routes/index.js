@@ -5,18 +5,13 @@ var fs = require("fs"),
  */
 
 exports.index = function(req, res){
-
-    var index = path.normalize(path.join(__dirname, "..", "cache", "_index"));
     
-    fs.readFile(index, "utf-8", function(err, data) {
-        nodes = JSON.parse(data);
-        res.render('list', { 
-            title: "Late to the Party", 
-            keywords:[], 
-            summary: "Just how far behind am I?", 
-            links: nodes,
-            canonical: "http://latetotheparty.co"
-        });
+    res.render('list', { 
+        title: "Late to the Party", 
+        keywords:[], 
+        summary: "Just how far behind am I?", 
+        links: process.index,
+        canonical: "http://latetotheparty.co"
     });
     
 }

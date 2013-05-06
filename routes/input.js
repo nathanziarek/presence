@@ -1,20 +1,32 @@
-var presence = require('../scripts/presence.js');
+var presence = require('../scripts/presence.js'),
+    fs = require('fs'),
+    path = require('path');
 
 exports.github = function(req, res) {
     
     var payload = (JSON.parse(req.body.payload)),
-        commit;
+        commit, data;
     
     for( var c = 0; c < payload.commits.length; c++ ) {
     
         commit = payload.commits[c];
     
         for( var a = 0; a < commit.added.length; a++ ) {
-            presence.getFromGitHub(commit.added[a], "added");
+            process.index.push( presence.parse(data, true) );
+            data = presence.getFromGitHub(commit.added[a]);
+            data = presence.parse(data);
+            
+            // what is the file name going to be?
+            
+            console.log(data);
+            
+            //fs.writeFile( path.normalize(path.join(__dirname, "..", "cache", "_index.json")), JSONstringify(data), function(){});
+            index = path.normalize(path.join(__dirname, "..", "cache", "_index.json"));
+            fs.writeFile(index, JSON.stringify(data), function(){});
         }
     
         for( var a = 0; a < commit.modified.length; a++ ) {
-            presence.getFromGitHub(commit.modified[a], "modified");
+            presence.getFromGitHub(commit.modified[a]);
         }
     
         for( var a = 0; a < commit.removed.length; a++ ) {

@@ -48,7 +48,7 @@ module.exports = {
         return oSummary;
     },
         
-    getFromGitHub: function(filename, type) {
+    getFromGitHub: function(filename) {
         
         var GitHubApi = require("github"),
             github = new GitHubApi({
@@ -58,17 +58,10 @@ module.exports = {
             
         githubInfo.path = filename;
             
-        github.repos.getContent(githubInfo, 
-            function(err, data){ 
-                if (err) { console.log(err); return }
-                filePath = path.join(cache, "github", data.path);
-                fileContents = new Buffer(data.content, data.encoding).toString('utf8');
-                fs.outputFile(filePath, fileContents, {"encoding": "utf8"}, function(err) {
-                    //console.log(filePath, fileContents);
-                    //if type=add, notify Twitter
-                    module.exports.reIndex();
-                });
-            });
+        github.repos.getContent(githubInfo,function(err, data){ 
+            if (err) { console.log(err); return }
+            return data;
+        });
             
         
     },
@@ -76,19 +69,6 @@ module.exports = {
     removeFromCache: function(filename) {},
     
     reIndex: function() {
-        var rScan = wrench.readdirSyncRecursive(cache),
-            indexAr = [];
-        for( var i = 0; i < rScan.length; i++) {
-            console.log(cache, rScan[i]);
-            //if files[i].indexOf("md") then...
-            //indexArr.push(module.exports.parse(fs.readFileSync(path.join(cache, files[i]), {"encoding", "utf8"), true));
-        }
-        //fs.writeFile(path.join(cache, "_index"), JSON.stringify(indexArr), function(){});
-        // Loop through all the files in cache
-        // pull out the md
-        // parse them
-        // build an object full of info
-        // write it to _index
     }
     
 }
