@@ -9,14 +9,14 @@ var fs = require("fs-extra"),
 
 module.exports = {
 
-    parse: function(data, skipBody) {
+    parse: function(mdText, skipBody) {
         
         var Showdown = require("showdown"),
             typogr = require('typogr');
         
         var converter = new Showdown.converter();
     
-        var summary = data.match(/{{({[\s\S]*?})}}/);
+        var summary = mdText.match(/{{({[\s\S]*?})}}/);
         var toReturn = {}, oSummary = { "title": "Late to the Party", "summary": "", "keywords" : [] };
         
         if(summary != undefined && summary[1] != null) {
@@ -31,18 +31,18 @@ module.exports = {
         }
     
         if(summary != undefined && summary[0]) {
-            copy = data.replace(summary[0], "");
+            copy = mdText.replace(summary[0], "");
         } else {
-            copy = data;
+            copy = mdText;
         }
         
         if(!skipBody) {
             oSummary.copy_orig = copy.trim();
             oSummary.copy = typogr.typogrify(converter.makeHtml(copy.trim()));
-            oSummary.data = data;
+            oSummary.mdText = mdText;
         }
         
-        title = data.match(/^\#(.*?)$/gim);
+        title = mdText.match(/^\#(.*?)$/gim);
         if(title && title[0]) { oSummary.title = title[0].replace("#", ""); }
     
         return oSummary;
@@ -58,7 +58,7 @@ module.exports = {
             
         githubInfo.path = filename;
             
-        github.repos.getContent(githubInfo,function(err, data){ 
+        github.repos.getContent(githubInfo, function(err, data){ 
             if (err) { console.log(err); return }
             return data;
         });

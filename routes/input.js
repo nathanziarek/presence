@@ -12,8 +12,9 @@ exports.github = function(req, res) {
         commit = payload.commits[c];
     
         for( var a = 0; a < commit.added.length; a++ ) {
-            process.index.push( presence.parse(data, true) );
             data = presence.getFromGitHub(commit.added[a]);
+            process.index.push( presence.parse(data, true) );
+            console.log(process.index);
             data = presence.parse(data);
             
             // what is the file name going to be?
