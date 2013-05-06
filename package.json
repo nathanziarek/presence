@@ -9,7 +9,7 @@
     "express": "3.0.3",
     "jade": "*",
     "less-middleware": "*",
-    "showndown": "*",
+    "showdown": "*",
     "connect" : "2.x",
     "feed" : "0.1.4",
     "github": "*",
