@@ -51,7 +51,6 @@ module.exports = {
     },
         
     getFromGitHub: function(filename, type) {
-        console.log(cache, "getFromGitHub()", filename, type);
         
         var GitHubApi = require("github"),
             github = new GitHubApi({
@@ -67,8 +66,8 @@ module.exports = {
                 filePath = path.join(cache, "github", data.path);
                 fileContents = new Buffer(data.content, data.encoding).toString('utf8');
                 fs.outputFile(filePath, fileContents, {"encoding": "utf8"}, function(err) {
-                    console.log(filePath, fileContents);
-                    //notify Twitter
+                    //console.log(filePath, fileContents);
+                    //if type=add, notify Twitter
                     presence.reIndex();
                 });
             });
