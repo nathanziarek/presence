@@ -13,8 +13,6 @@ module.exports = {
         
         var Showdown = require("showdown"),
             typogr = require('typogr');
-                
-        //var MultiMarkdown = require("multimarkdown");
         
         var converter = new Showdown.converter();
     
@@ -41,7 +39,6 @@ module.exports = {
         if(!skipBody) {
             oSummary.copy_orig = copy.trim();
             oSummary.copy = typogr.typogrify(converter.makeHtml(copy.trim()));
-            //oSummary.copy = MultiMarkdown.convert(copy.trim());
             oSummary.data = data;
         }
         
