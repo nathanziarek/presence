@@ -72,7 +72,7 @@ module.exports = {
                         //notify Twitter
                         //notify the re-indexer
                     });
-                }
+                });
             });
             
         
