@@ -76,10 +76,10 @@ module.exports = {
     removeFromCache: function(filename) {},
     
     reIndex: function() {
-        var files = wrench.readdirSyncRecursive(cache),
+        var rScan = wrench.readdirSyncRecursive(cache),
             indexAr = [];
-        for( var i = 0; i < files.length; i++) {
-            console.log(__dirname, files[i]);
+        for( var i = 0; i < rScan.length; i++) {
+            console.log(cache, rScan[i]);
             //if files[i].indexOf("md") then...
             //indexArr.push(module.exports.parse(fs.readFileSync(path.join(cache, files[i]), {"encoding", "utf8"), true));
         }
