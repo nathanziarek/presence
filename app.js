@@ -12,7 +12,7 @@ var express = require('express')
   
   
 /* Globals */
-process.index = require('./cache/_index.json');
+process.index = require('./cache/index.json');
   
 var app = module.exports = express();
 
