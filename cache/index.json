@@ -1,4 +1,12 @@
 {
-    "keywords": { "ux": ["there-is-value-in-the-disruption"] },
-    "articles": { "there-is-value-in-the-disruption": { title:"There is value in the disruption", "file": "there-is-value-in-the-disruption.json", "href": "there-is-value-in-the-disruption", "posted-on": new Date(), "summary":"THere is actual value in the disruption.", keywords: ["ux"] } }
+    "articles": { 
+        "there-is-value-in-the-disruption": { 
+            "title": "There is Value in the Disruption", 
+            "file": "there-is-value-in-the-disruption.json", 
+            "href": "there-is-value-in-the-disruption", 
+            "posted-on": new Date(), 
+            "summary": "There is actual value in the disruption.", 
+            "keywords": ["ux"] 
+        }
+    }
 }
