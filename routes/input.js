@@ -12,23 +12,7 @@ exports.github = function(req, res) {
         commit = payload.commits[c];
     
         for( var a = 0; a < commit.added.length; a++ ) {
-            data = presence.getFromGitHub(commit.added[a]);
-            data = presence.parse(data);
-            
-            data.file = presence.createFileId(data.title);
-            
-            //fs.writeFile(data.file, data);
-            
-            console.log(data.file);
-            data = presence.parse(data);
-            
-            // what is the file name going to be?
-            
-            console.log(data);
-            
-            //fs.writeFile( path.normalize(path.join(__dirname, "..", "cache", "_index.json")), JSONstringify(data), function(){});
-            index = path.normalize(path.join(__dirname, "..", "cache", "_index.json"));
-            fs.writeFile(index, JSON.stringify(data), function(){});
+            presence.getFromGitHub(commit.added[a]);
         }
     
         for( var a = 0; a < commit.modified.length; a++ ) {

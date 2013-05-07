@@ -14,7 +14,7 @@ module.exports = {
         if(process.index[fileId] != undefined) {
             module.exports.createFileId(title + " " + ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"][Math.floor(Math.random()*26)]);
         } else {
-            return fileId + ".json";
+            return fileId;
         }
     },
 
@@ -75,7 +75,24 @@ module.exports = {
             
         github.repos.getContent(githubInfo, function(err, data){ 
             if (err) { console.log(err); return }
-            return data;
+            data = module.exports.parse(data);
+            data.href = module.exports.createFileId(data.title);
+            data.file = data.href + ".json";
+            
+            console.log(data);
+            
+            fs.writeFile(path.join(cache, data.file), JSON.stringify(data));
+            
+            delete data.copy;
+            
+            process.index[data.href] = data;
+            
+            fs.writeFile(path.join(cache, "index.json"), JSON.stringify(process.index));
+            
+            
+            //fs.writeFile( path.normalize(path.join(__dirname, "..", "cache", "_index.json")), JSONstringify(data), function(){});
+            //index = path.normalize(path.join(__dirname, "..", "cache", "_index.json"));
+            //fs.writeFile(index, JSON.stringify(data), function(){});
         });
             
         
