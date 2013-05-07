@@ -8,7 +8,7 @@ exports.index = function(req, res){
 
     var articleList = [];
 
-    for key in process.index.articles {
+    for (key in process.index.articles) {
         if (process.index.articles.hasOwnProperty(key)) {
            if(process.index.articles[key].status != "draft"){
                articleList.push({ 
@@ -21,7 +21,10 @@ exports.index = function(req, res){
         }
     }
 
-    articleList = articleList.sort();
+    articleList.sort(function(a, b){
+        var dateA = new Date(a['posted-on']), dateB = new Date(b['posted-on']);
+        return dateB-dateA;
+    });
     
     res.render('list', { 
         title: "Late to the Party", 
@@ -31,9 +34,5 @@ exports.index = function(req, res){
         canonical: "http://latetotheparty.co"
     });
 
-    articleList.sort(function(a, b){
-        var dateA = new Date(a['posted-on']), dateB = new Date(b['posted-on']);
-        return dateB-dateA;
-    });
     
 }
