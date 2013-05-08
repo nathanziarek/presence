@@ -37,71 +37,28 @@ exports.sitemap = function(req, res) {
 
 exports.rss = function(req, res){
 
-    var filesList = [], dataArray = [];
+    var items = [],
+        feed = new rss({
+            title: "Late to the Party",
+            description: "All the stuff I'm just discovering that you've probably moved on from.",
+            feed_url: 'http://latetotheparty.co/rss',
+            site_url: 'http://latetotheparty.co',
+            author: 'Nathan Ziarek'
+        });
 
-    var dataIndex = path.normalize(path.join(__dirname, "..", "cache", "_index"));
-    
-    // File List 01
-    fs.readdir(dataDir, function(err, files){
-        
-        if(err) { return; }
-        
-        var file;
-        
-        for(var i = 0; i < files.length; i++) {
-            if(files[i] != "_index") {
-                filesList.push(files[i]);
-            }
-        }
-        
-        getAndPush();
-        
-    });
-    
-    function getAndPush(){
-        f = filesList.pop();
-        if(f) {
-            file = path.normalize(path.join(__dirname, "..", "cache", f));
-            fs.readFile(file, "utf-8", function(err, data) {
-                if (err) { return; };
-                data = presence.parse(data);
-                dataArray.push({
-                    file: f,
-                    href: f.replace(".md", ""),
-                    modified: new Date(),
-                    title: data.title,
-                    summary: data.summary,
-                    keywords: data.keywords
-                });
-                getAndPush(); return;
-            });
-        } else {
-            file = path.normalize(path.join(__dirname, "..", "cache", "_index"));
-            fs.writeFile(file, JSON.stringify(dataArray), function (err) {
-                if (err) { return }
-                var feed = new rss({
-                    title: "Late to the Party",
-                    description: "All the stuff I'm just discovering that you've probably moved on from.",
-                    feed_url: 'http://latetotheparty.co/rss',
-                    site_url: 'http://latetotheparty.co',
-                    author: 'Nathan Ziarek'
-                });
-                for( var i = 0; i < dataArray.length; i++ ) {
-                    feed.item({
-                        title:  dataArray[i].title,
-                        description: dataArray[i].summary,
-                        url: 'http://latetotheparty.co/' + dataArray[i].href,
-                        date: dataArray[i].modified
-                    });
-                }
-                var xml = feed.xml();
-                //res.etagify();
-                res.send(xml);
-                
-            });
+    for (key in process.index.articles) {
+        if (process.index.articles.hasOwnProperty(key)) {
+           if(process.index.articles[key].status != "draft"){
+               feed.item({ 
+                   title:  process.index.articles[key].title,
+                   description: process.index.articles[key].summary,
+                   url: 'http://latetotheparty.co/' + process.index.articles[key].href,
+                   date: process.index.articles[key]['published-on']
+               });
+           }
         }
     }
 
+    res.send(feed.xml());
 
-                
-};
+}
