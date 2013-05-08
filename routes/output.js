@@ -11,16 +11,18 @@ exports.sitemap = function(req, res) {
 
     var urls = [{ url: "/", changefreq: "daily", priority: 1 }];
 
-    fs.readdir(dataDir, function(err, files){
-        
-        if(err) { return; }
-        
-        for(var i = 0; i < files.length; i++) {
-            if(files[i] != "_index" && files[i] != ".DS_Store") {
-                urls.push({ url: "/" + files[i].replace(".md", ""), changefreq: "monthly", priority: .7 });
-            }
+    for (key in process.index.articles) {
+        if (process.index.articles.hasOwnProperty(key)) {
+           if(process.index.articles[key].status != "draft"){
+               urls.push({ 
+                   url: process.index.articles[key].href,
+                   changefreq: "monthly",
+                   priority: .8
+               });
+           }
         }
-        
+    }
+
         sitemap = sm.createSitemap({
             hostname: "http://latetotheparty.co",
             cacheTime: 600000,
@@ -29,8 +31,6 @@ exports.sitemap = function(req, res) {
         
         res.header('Content-Type', 'application/xml');
         res.send( sitemap.toString() );
-        
-    });
 
 }
 
