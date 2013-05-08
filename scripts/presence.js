@@ -64,6 +64,8 @@ module.exports = {
     },
         
     getFromGitHub: function(filename) {
+
+        if(filename.indexOf("articles/") < 0) { return; }
         
         var GitHubApi = require("github"),
             github = new GitHubApi({
@@ -73,8 +75,10 @@ module.exports = {
             
         githubInfo.path = filename;
             
-        github.repos.getContent(githubInfo, function(err, data){ 
+        github.repos.getContent(githubInfo, function(err, data){
+
             if (err) { console.log(err); return }
+
             data = module.exports.parse(data);
             data.id = module.exports.createFileId(data.title);
             data.file = data.id + ".json";
@@ -90,12 +94,7 @@ module.exports = {
             
             fs.writeFile(path.join(cache, "index.json"), JSON.stringify(process.index));
             
-            
-            //fs.writeFile( path.normalize(path.join(__dirname, "..", "cache", "_index.json")), JSONstringify(data), function(){});
-            //index = path.normalize(path.join(__dirname, "..", "cache", "_index.json"));
-            //fs.writeFile(index, JSON.stringify(data), function(){});
         });
-            
         
     },
     
