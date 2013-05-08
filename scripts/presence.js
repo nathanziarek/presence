@@ -76,8 +76,9 @@ module.exports = {
         github.repos.getContent(githubInfo, function(err, data){ 
             if (err) { console.log(err); return }
             data = module.exports.parse(data);
-            data.href = module.exports.createFileId(data.title);
-            data.file = data.href + ".json";
+            data.id = module.exports.createFileId(data.title);
+            data.file = data.id + ".json";
+            data.href = "/" + data.id;
             
             console.log(data);
             
@@ -85,7 +86,7 @@ module.exports = {
             
             delete data.copy;
             
-            process.index[data.href] = data;
+            process.index[data.id] = data;
             
             fs.writeFile(path.join(cache, "index.json"), JSON.stringify(process.index));
             
