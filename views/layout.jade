@@ -18,7 +18,7 @@ html
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-38685832-1', 'latetotheparty.co');
-      ga('send', 'pageview');
+      ga('send', 'pageview', {'page': '#{href}' });
     link(rel='canonical', href= canonical)
   body
       block content

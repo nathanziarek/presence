@@ -24,14 +24,15 @@ exports.index = function(req, res){
     articleList.sort(function(a, b){
         var dateA = new Date(a['posted-on']), dateB = new Date(b['posted-on']);
         return dateB-dateA;
-    });
+    });    
     
     res.render('list', { 
         title: "Late to the Party", 
         keywords: [], 
         summary: "Just how far behind am I?", 
         links: articleList,
-        canonical: "http://latetotheparty.co"
+        canonical: "http://latetotheparty.co",
+        href: "/"
     });
 
     
