@@ -12,6 +12,7 @@ exports.github = function(req, res) {
         commit = payload.commits[c];
     
         for( var a = 0; a < commit.added.length; a++ ) {
+            console.log(commit.added[a]);
             presence.getFromGitHub(commit.added[a]);
         }
     

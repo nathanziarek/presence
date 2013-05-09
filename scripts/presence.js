@@ -19,6 +19,8 @@ module.exports = {
     },
 
     parse: function(mdText, skipBody) {
+    
+        console.log(mdText);
         
         var Showdown = require("showdown"),
             typogr = require('typogr');
