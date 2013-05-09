@@ -80,6 +80,11 @@ module.exports = {
                 version: "3.0.0",
                 timeout: 5000
             });
+            github.authenticate({
+                type: "basic",
+                username: "nathanziarek",
+                password: "l1ghty3ar"
+            });
             
         githubInfo.path = filename;
             
