@@ -20,7 +20,7 @@ module.exports = {
 
     parse: function(mdText, skipBody) {
     
-        console.log(mdText);
+        console.log("mdText", mdText);
         
         var Showdown = require("showdown"),
             typogr = require('typogr');
@@ -66,7 +66,7 @@ module.exports = {
         title = mdText.match(/^\#(.*?)$/gim);
         if(title && title[0]) { oSummary.title = title[0].replace("#", ""); }
     
-        console.log(oSummary);
+        console.log("oSummary", oSummary);
     
         return oSummary;
     },
@@ -93,8 +93,6 @@ module.exports = {
             data.id = module.exports.createFileId(data.title);
             data.file = data.id + ".json";
             data.href = "/" + data.id;
-            
-            console.log(data);
             
             fs.writeFile(path.join(cache, data.file), JSON.stringify(data));
             
