@@ -93,6 +93,7 @@ module.exports = {
             data.id = module.exports.createFileId(data.title);
             data.file = data.id + ".json";
             data.href = "/" + data.id;
+            data.canonical = "http://latetotheparty.co/" + data.id;
             
             fs.writeFile(path.join(cache, data.file), JSON.stringify(data));
             
