@@ -10,7 +10,7 @@ var fs = require("fs-extra"),
 module.exports = {
 
     createFileId: function(title) {
-        fileId = title.toLowerCase().replace(/[^\w\d]+/gim, "-");
+        fileId = title.trim().toLowerCase().replace(/[^\w\d]+/gim, "-");
         if(process.index[fileId] != undefined) {
             module.exports.createFileId(title + " " + ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"][Math.floor(Math.random()*26)]);
         } else {
@@ -64,7 +64,7 @@ module.exports = {
         }
         
         title = mdText.match(/^\#(.*?)$/gim);
-        if(title && title[0]) { oSummary.title = title[0].replace("#", ""); }
+        if(title && title[0]) { oSummary.title = title[0].replace("#", "").trim(); }
     
         console.log("oSummary", oSummary);
     
