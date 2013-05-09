@@ -24,7 +24,9 @@ exports.index = function(req, res){
     articleList.sort(function(a, b){
         var dateA = new Date(a['publishedOn']), dateB = new Date(b['publishedOn']);
         return dateB-dateA;
-    });    
+    });
+    
+    console.log(process.index);  
     
     res.render('list', { 
         title: "Late to the Party", 
