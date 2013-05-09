@@ -1,50 +1,62 @@
 @import "variables";
-@textBaseColor: darken(desaturate(@baseColor, 90%), 5%);
 
+/* Setup Type-Specific Variables */
 
-body {
-    font-size: @fontSize;
-    font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-weight: 400;
-}
+@fontBodyColor: desaturate(@colorBrand, 100%);
+@fontLinkColor: lighten(spin(@colorBrand, 190), 8%);
 
 article {
-    h1 { .heading(1); }
+    h1 { 
+        .heading(1);
+        margin: 10px 0 20px 0;
+    }
     h2 { .heading(2); }
     h3 { .heading(3); }
+    address {
+        font-family: @typeBody;
+        font-size: @fontBody;
+        font-weight: 300;
+        font-style: normal;
+        color: lighten(@fontBodyColor, 10%);
+        line-height: @fontBody * 1.6;
+    }
     p, li {
-        line-height: @fontSize * 1.9;
-        color: darken(@textBaseColor, 10%);
-        b, strong {
+        font-family: @typeBody;
+        font-size: @fontBody;
+        font-weight:  400;
+        color: @fontBodyColor;
+        line-height: @fontBody * 1.6;
+        margin: 10px 0;
+        b, strong{
+            color: darken(@fontBodyColor, 10%);
             font-weight: 600;
-            color: darken(@textBaseColor, 25%);
         }
         i, em {
             font-style: italic;
         }
         a {
-            color: lighten(@baseColor, 10%);
+            color: @fontLinkColor;
             text-decoration: none;
             &:hover {
-                color: lighten(@baseColor, 20%);
+                color: lighten(@fontLinkColor, 20%);
                 text-decoration: underline;
             }
         }
-        &:nth-child(2) {
-            font-size:  @fontSize + 4;
-            line-height: (@fontSize + 4) * 1.7;
-            font-weight:  300;
-        }
     }
     blockquote {
-        border-left: 2px darken(@backgroundColor, 15%) solid;
         padding-left: 20px;
-        margin: 10px 20px;
+        margin: 20px;
         font-style: italic;
+        border-left: 2px solid lighten(@fontBodyColor, 50%);
+        color: @fontBodyColor;
         cite {
             display: block;
+            font-family: @typeBody;
+            font-size: @fontBody;
+            font-weight:  400;            
             &:before{
-                content: "—"
+                content: "— ";
+                margin-left: 10px;
             }
         }
         i, em {
@@ -57,9 +69,9 @@ article {
 /* Utilities */
     
     .heading(@n) {
-        font-size: (@fontSize * (2.4 - (@n * .4)));
+        font-size: (@fontBody * (2.8 - (@n * .4)));
         font-weight: 400;
-        color: @textBaseColor;
+        color: @fontBodyColor;
         margin: 10px 0;
-        font-family: Montaga, "Open Sans"
+        font-family: @typeHeadline;
     }

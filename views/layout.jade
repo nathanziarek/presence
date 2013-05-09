@@ -2,7 +2,7 @@ doctype 5
 html
   head
     link(rel='stylesheet', href='/style/style.css')
-    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Montaga|Open+Sans:400italic,600italic,400,600,300')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Ovo|Open+Sans:400italic,600italic,400,300,600')
     meta(name='description', content= summary)
     meta(name='keywords', content= keywords)
     meta(name="twitter:card", content="summary")
@@ -23,12 +23,6 @@ html
   body
       block content
       div(class='brandWrap')
-          div(class='brandContainer')
-              a(href='/') Late to the Party
-              nav(class='social')
-                  a(href='https://plus.google.com/108120786603469208780/?rel=author', class='google') g
-                      span Google+
-                  a(class='twitter', href='http://twitter.com/nathanziarek') t
-                      span Twitter
-                  a(class='linkedin', href='http://linkedin/in/nathanziarek') l
-                      span LinkedIn
+          a(href='/', class='brandLogo')
+              span Z
+          a(href='/', class='brandName') Late to the Party

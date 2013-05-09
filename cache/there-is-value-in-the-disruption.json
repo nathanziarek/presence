@@ -5,7 +5,13 @@
     "published-on": "May 13 2013", 
     "summary":"BLAH SUMMARY", 
     "keywords": [],
-    "copy": "<h1>Yakcity</h1>",
+    "copy": "<h1>There is Value in the Disruption</h1><p>Lorem ipsum dolor sit amet, <b>consectetur</b> adipiscing elit. In sodales commodo orci sit amet faucibus. Donec vestibulum ligula sit amet dolor tempus sit amet rutrum purus tristique. Donec risus tortor, pretium vitae tincidunt eu, aliquam a ante.</p><p>Curabitur &amp; dictum facilisis mollis. <i>Morbi dignissim</i> sollicitudin viverra. Cras egestas tincidunt dui sit amet condimentum. Maecenas leo leo, tempus non facilisis nec, eleifend et mi.</p><blockquote><p>Nunc luctus, mauris a vehicula dignissim, dolor dolor sollicitudin</p><cite>Nathan Ziarek</cite></blockquote><p><a href='/blah blah blah'>Nunc</a> luctus, mauris a vehicula dignissim, dolor dolor sollicitudin tortor, quis dignissim metus mauris ut orci.</p>",
     "status": "draft",
-    "canonical": "http://latetotheparty.com/there-is-value-in-the-disruption" 
+    "canonical": "http://latetotheparty.com/there-is-value-in-the-disruption",
+    "author": "Nathan Ziarek",
+    "authorConnect": {
+        "google": "https://plus.google.com/108120786603469208780",
+        "linkedin": "nathanziarek",
+        "twitter": "nathanziarek"
+    }
 }

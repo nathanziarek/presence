@@ -1,4 +1,14 @@
 extends layout
 
 block content
-  article(itemscope, itemtype="http://schema.org/Article")!= copy
+  article(itemscope, itemtype="http://schema.org/Article")
+    != copy
+    address(itemprop="author", itemscope, itemtype="http://schema.org/Person")
+        span(rel="author", itemprop="name")= author
+        nav(class='social')
+          if locals.authorConnect.google
+            a(href= locals.authorConnect.google + '?rel=author', class='icon-google-plus', itemprop="url") Google+
+          if locals.authorConnect.twitter
+            a(href="http://twitter.com/" + locals.authorConnect.twitter, class='icon-twitter', itemprop="url") Twitter
+          if locals.authorConnect.linkedin
+            a(href="http://linkedin/in/" + locals.authorConnect.linkedin, class='icon-linkedin', itemprop="url") LinkedIn
