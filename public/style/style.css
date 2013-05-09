@@ -2,7 +2,9 @@
 .brandWrap .brandName{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:300;color:#777777;font-size:21px;line-height:84px;float:left;margin-left:20px;}
 .brandWrap .brandLogo{width:50px;height:84px;background-color:#6e1400;display:block;color:white;font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:300;position:relative;float:left;}.brandWrap .brandLogo span{display:block;position:absolute;bottom:0;left:50%;margin-left:-5px;transform:rotate(90deg);-ms-transform:rotate(90deg);-webkit-transform:rotate(90deg);}
 nav.social{display:inline;font-size:12px;margin:0 10px;}nav.social a{color:#006297;text-decoration:none;height:19px;line-height:19px;width:19px;text-align:center;display:inline-block;overflow:hidden;letter-spacing:10px;}nav.social a:hover{font-size:14px;}
-article{width:630px;padding-left:70px;margin:114px auto;}
+article,.pageContainer{width:630px;padding:0;padding-left:70px;margin:114px auto;}
+.pageContainer{list-style:none;}.pageContainer li{margin:0;padding:0;width:300px;}.pageContainer li p{margin:0;}.pageContainer li p.title{font-family:"Ovo",Garamond,serif;font-size:24px;line-height:29px;margin-bottom:5px;}.pageContainer li p.title a{text-decoration:none;color:#515151;}.pageContainer li p.title a:hover{color:#713c30;}
+.pageContainer li p.summary{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;color:#5d5d5d;line-height:22.400000000000002px;}
 article h1{font-size:33.6px;font-weight:400;color:#373737;margin:10px 0;font-family:"Ovo",Garamond,serif;margin:10px 0 20px 0;}
 article h2{font-size:27.999999999999996px;font-weight:400;color:#373737;margin:10px 0;font-family:"Ovo",Garamond,serif;}
 article h3{font-size:22.399999999999995px;font-weight:400;color:#373737;margin:10px 0;font-family:"Ovo",Garamond,serif;}

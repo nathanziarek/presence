@@ -4,9 +4,34 @@
             "title": "There is Value in the Disruption", 
             "file": "there-is-value-in-the-disruption.json", 
             "href": "/there-is-value-in-the-disruption", 
+            "publishedOn": "May 12 2013",
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales commodo orci sit amet faucibus.", 
+            "keywords": ["ux"]
+        },
+        "there-is-value-in-the-disruption-a": { 
+            "title": "Finding Your WayFinding Your WayFinding Your Way", 
+            "file": "there-is-value-in-the-disruption.json", 
+            "href": "/there-is-value-in-the-disruption", 
+            "publishedOn": "May 13 2013",
+            "summary": "Nunc luctus, mauris a vehicula dignissim, dolor dolor sollicitudin tortor.", 
+            "keywords": ["ux"]
+        },
+        "there-is-value-in-the-disruption-b": { 
+            "title": "dolor dolor sollicitudin tortor", 
+            "file": "there-is-value-in-the-disruption.json", 
+            "href": "/there-is-value-in-the-disruption", 
             "publishedOn": "May 14 2013",
-            "summary": "There is actual value in the disruption.", 
+            "summary": "Curabitur & dictum facilisis mollis. Morbi dignissim sollicitudin viverra.", 
+            "keywords": ["ux"]
+        },
+        "there-is-value-in-the-disruption-c": { 
+            "title": "Nunc luctus, mauris a vehicula dignissim", 
+            "file": "there-is-value-in-the-disruption.json", 
+            "href": "/there-is-value-in-the-disruption", 
+            "publishedOn": "May 15 2013",
+            "summary": "Cras egestas tincidunt dui sit amet condimentum.", 
             "keywords": ["ux"]
         }
+                
     }
 }

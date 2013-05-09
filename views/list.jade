@@ -4,14 +4,16 @@ block content
   ul(class='pageContainer', itemscope, itemtype="http://schema.org/ItemList")
       each item in links
           li(class="articleBlock", itemprop="itemListElement", itemscope, itemtype="http://schema.org/Article")
-              p(itemprop="name")
+              p(itemprop="name", class="title")
                   a(href=item.href, itemprop="url")= item.title
               p(itemprop="description", class='summary')= item.summary
               meta(itemprop="datePublished", content= item.publishedOn)
   script(src='/script/packery.js')
   script
-      var container = document.querySelector('.pageContainer');
-      var pckry = new Packery( container, {
-        itemSelector: '.pageContainer a',
-        gutter: 10
-      });
+      function layout() {
+          var container = document.querySelector('.pageContainer');
+          var pckry = new Packery( container, {
+            itemSelector: '.articleBlock',
+            gutter: 30
+          });
+      }

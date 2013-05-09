@@ -20,7 +20,7 @@ html
       ga('create', 'UA-38685832-1', 'latetotheparty.co');
       ga('send', 'pageview', {'page': '#{href}' });
     link(rel='canonical', href= canonical)
-  body
+  body(onload="layout()")
       block content
       div(class='brandWrap')
           a(href='/', class='brandLogo')

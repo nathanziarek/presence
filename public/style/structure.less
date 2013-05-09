@@ -68,10 +68,42 @@ nav {
     }
 }
 
-article {
+article, .pageContainer {
     width:  @pageWidth - 70px;
+    padding: 0;
     padding-left:  70px;
     margin: (@fontBrandSize * @logoScale + 30px) auto;
+}
+
+.pageContainer {
+    list-style: none;
+    li {
+        margin: 0;
+        padding: 0;
+        width:  300px;
+        p {
+            margin: 0;
+            &.title {
+                font-family: @typeHeadline;
+                font-size: @fontBody + 10;
+                line-height: @fontBody + 15;
+                margin-bottom: 5px;
+                a {
+                    text-decoration: none;
+                    color: lighten(desaturate(@colorBrand, 100%), 10%);
+                    &:hover{
+                        color: lighten(desaturate(@colorBrand, 60%), 10%);
+                    }
+                }
+            }
+            &.summary {
+                font-family: @typeBody;
+                font-size: @fontBody;
+                color: lighten(desaturate(@colorBrand, 100%), 15%);
+                line-height: @fontBody * 1.6;
+            }
+        }
+    }
 }
 
 /* Utility */
