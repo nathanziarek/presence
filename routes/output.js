@@ -3,7 +3,7 @@ var fs = require("fs"),
     rss = require('rss'),
     sm = require('sitemap');
 
-var dataDir = path.normalize(path.join(__dirname, "..", "cache"));
+var dataDir = path.normalize(path.join(__dirname, "..", "..", "cache"));
     
 var presence = require('../scripts/presence.js');
 

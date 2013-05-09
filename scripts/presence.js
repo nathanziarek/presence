@@ -1,7 +1,7 @@
 var fs = require("fs-extra"),
     path = require("path"),
     wrench = require("wrench"),
-    cache = path.normalize(path.join(__dirname, "..", "cache")),
+    cache = path.normalize(path.join(__dirname, "..", "..", "cache")),
     githubInfo = {
         user:"nathanziarek", 
         repo: "late-to-the-party"
