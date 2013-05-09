@@ -1,11 +1,13 @@
 extends layout
 
 block content
-  section(class='pageContainer')
+  ul(class='pageContainer', itemscope, itemtype="http://schema.org/ItemList")
       each item in links
-          a(href=item.href)
-              p= item.title
-              p(class='summary')= item.summary
+          li(class="articleBlock", itemprop="itemListElement", itemscope, itemtype="http://schema.org/Article")
+              p(itemprop="name")
+                  a(href=item.href, itemprop="url")= item.title
+              p(itemprop="description", class='summary')= item.summary
+              meta(itemprop="datePublished", content= item.publishedOn)
   script(src='/script/packery.js')
   script
       var container = document.querySelector('.pageContainer');

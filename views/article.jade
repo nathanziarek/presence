@@ -3,6 +3,9 @@ extends layout
 block content
   article(itemscope, itemtype="http://schema.org/Article")
     != copy
+    meta(itemprop="datePublished", content= publishedOn)
+    meta(itemprop="description", content= summary)
+    meta(itemprop="url", content= canonical)
     address(itemprop="author", itemscope, itemtype="http://schema.org/Person")
         span(rel="author", itemprop="name")= author
         nav(class='social')

@@ -53,7 +53,7 @@ exports.rss = function(req, res){
                    title:  process.index.articles[key].title,
                    description: process.index.articles[key].summary,
                    url: 'http://latetotheparty.co/' + process.index.articles[key].href,
-                   date: process.index.articles[key]['published-on']
+                   date: process.index.articles[key].publishedOn
                });
            }
         }

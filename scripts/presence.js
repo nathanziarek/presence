@@ -39,14 +39,14 @@ module.exports = {
             } catch(err) { }
         }
         
-        if(oSummary['published-on'] == undefined) { oSummary['published-on'] = new Date(); }
+        if(oSummary['publishedOn'] == undefined) { oSummary['publishedOn'] = new Date(); }
         if(oSummary.author == undefined) { oSummary.author = "Nathan Ziarek"; }
         if(oSummary.authorConnect == undefined) { oSummary.authorConnect = {}; }
         if(oSummary.authorConnect.google == undefined) { oSummary.authorConnect.google = "https://plus.google.com/108120786603469208780"; }
         if(oSummary.authorConnect.twitter == undefined) { oSummary.authorConnect.twitter = "nathanziarek"; }
         if(oSummary.authorConnect.linkedin == undefined) { oSummary.authorConnect.linkedin = "nathanziarek"; }
         
-        oSummary['published-on'] = new Date(oSummary['published-on']);
+        oSummary['publishedOn'] = new Date(oSummary['publishedOn']);
     
         if(summary != undefined && summary[0]) {
             copy = mdText.replace(summary[0], "");

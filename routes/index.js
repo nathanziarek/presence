@@ -15,14 +15,14 @@ exports.index = function(req, res){
                    href: process.index.articles[key].href,
                    title: process.index.articles[key].title,
                    summary: process.index.articles[key].summary,
-                   "posted-on": process.index.articles[key]['posted-on']
+                   "publishedOn": new Date(process.index.articles[key]['publishedOn']).toString()
                });
            }
         }
     }
 
     articleList.sort(function(a, b){
-        var dateA = new Date(a['posted-on']), dateB = new Date(b['posted-on']);
+        var dateA = new Date(a['publishedOn']), dateB = new Date(b['publishedOn']);
         return dateB-dateA;
     });    
     
