@@ -5,7 +5,7 @@ var presence = require('../scripts/presence.js');
 
     exports.render = function(req, res){
         
-        var key = req.url.replace(/^\//, ""); console.log(process.index.articles[key]);
+        var key = req.url.replace(/^\//, ""); 
         if(process.index.articles[key] == undefined || process.index.articles[key].file == undefined) {
             res.redirect(301, "/"); 
             return; 

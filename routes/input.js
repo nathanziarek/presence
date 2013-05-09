@@ -12,7 +12,6 @@ exports.github = function(req, res) {
         commit = payload.commits[c];
     
         for( var a = 0; a < commit.added.length; a++ ) {
-            console.log(commit.added[a]);
             presence.getFromGitHub(commit.added[a]);
         }
     
@@ -26,22 +25,4 @@ exports.github = function(req, res) {
         
     }
     
-    /*var body = "";
-    req.on('data', function (chunk) {
-      body += chunk;
-    });
-    req.on('end', function () {
-      console.log('POSTed: ' + body);
-      res.writeHead(200);
-      res.end(postHTML);
-    });*/
-    
-    // get the request
-    // turn it into a JSON object
-    // loop through payload.commits[].added[]
-    //                               .modified[]
-    //                               .removed[]
-    // download any new or modified files
-    // delete any removed files
-    // rebuild _index
 };
