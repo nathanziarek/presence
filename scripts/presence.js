@@ -87,7 +87,7 @@ module.exports = {
 
             if (err) { console.log(err); return }
             
-            data = new Buffer(data.content).toString(data.encoding)
+            data = new Buffer(data.content, data.encoding).toString("utf8")
 
             data = module.exports.parse(data);
             data.id = module.exports.createFileId(data.title);
