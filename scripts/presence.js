@@ -98,7 +98,7 @@ module.exports = {
             
             delete data.copy;
             
-            process.index[data.id] = data;
+            process.index.articles[data.id] = data;
             
             fs.writeFile(path.join(cache, "index.json"), JSON.stringify(process.index));
             
