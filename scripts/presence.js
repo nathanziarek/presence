@@ -57,6 +57,7 @@ module.exports = {
         if(!skipBody) {
             //oSummary.copy_orig = copy.trim();
             oSummary.copy = typogr.typogrify(converter.makeHtml(copy.trim()));
+            oSummary.copy = oSummary.copy.replace("<h1 ", '<h1 itemprop="name" ');
             //oSummary.mdText = mdText;
         }
         
