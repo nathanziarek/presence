@@ -19,9 +19,7 @@ module.exports = {
     },
 
     parse: function(mdText, skipBody) {
-    
-        console.log("mdText", mdText);
-        
+            
         var Showdown = require("showdown"),
             typogr = require('typogr');
         
@@ -65,9 +63,7 @@ module.exports = {
         
         title = mdText.match(/^\#(.*?)$/gim);
         if(title && title[0]) { oSummary.title = title[0].replace("#", "").trim(); }
-    
-        console.log("oSummary", oSummary);
-    
+        
         return oSummary;
     },
         
