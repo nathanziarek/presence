@@ -18,6 +18,7 @@ var app = module.exports = express();
 
 app.configure(function(){
   app.use(express.logger('dev'));
+  app.use(express.favicon(__dirname + '/public/icons/favicon.ico'));
   app.use(express.compress());
   app.use(require('less-middleware')({ optimization:2, dest: __dirname + '/public', src: __dirname + '/public', compress: true }));
   app.use(express.methodOverride());
@@ -25,7 +26,6 @@ app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
-  //app.use(express.favicon());
   app.use(express.bodyParser());
   app.use(app.router);
 });
