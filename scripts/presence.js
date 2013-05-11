@@ -67,7 +67,7 @@ module.exports = {
         return oSummary;
     },
         
-    getFromGitHub: function(filename) {
+    getFromGitHub: function(filename, state) {
 
         if(filename.indexOf("articles/") < 0) { return; }
         
@@ -81,26 +81,36 @@ module.exports = {
                 username: "nathanziarek",
                 password: "l1ghty3ar"
             });
-            
+                        
         githubInfo.path = filename;
             
         github.repos.getContent(githubInfo, function(err, data){
 
             if (err) { console.log(err); return }
             
-            data = new Buffer(data.content, data.encoding).toString("utf8")
+            data = new Buffer(data.content, data.encoding).toString("utf8");
+            
+            //if(process.index.mapping[filename] == undefined) {
+                // new
+            //} else {
+            //    tmpId = process.index.mapping[filename];
+            //    tmpLnk = process.index.articles[tmpId].href;
+            //    process.index.articles[tmpId] = { statu
+            //}
 
             data = module.exports.parse(data);
             data.id = module.exports.createFileId(data.title);
             data.file = data.id + ".json";
             data.href = "/" + data.id;
             data.canonical = "http://latetotheparty.co/" + data.id;
+            data.filename = filename;
             
             fs.writeFile(path.join(cache, data.file), JSON.stringify(data));
             
             delete data.copy;
             
             process.index.articles[data.id] = data;
+            process.index.mapping[data.filename] = data.id;
             
             fs.writeFile(path.join(cache, "index.json"), JSON.stringify(process.index));
             
@@ -108,7 +118,12 @@ module.exports = {
         
     },
     
-    removeFromCache: function(filename) {},
+    removeFromCache: function(filename) {
+        var id = process.index.articles[filename];
+        var file = process.index.articles[id].file;
+        fs.unlinkSync(path.join(cache, file));
+        delete process.index.articles[id];
+    },
     
     reIndex: function() {
     }

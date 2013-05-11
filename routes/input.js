@@ -12,11 +12,11 @@ exports.github = function(req, res) {
         commit = payload.commits[c];
     
         for( var a = 0; a < commit.added.length; a++ ) {
-            presence.getFromGitHub(commit.added[a]);
+            presence.getFromGitHub(commit.added[a], "add");
         }
     
         for( var a = 0; a < commit.modified.length; a++ ) {
-            presence.getFromGitHub(commit.modified[a]);
+            presence.getFromGitHub(commit.modified[a], "mod");
         }
     
         for( var a = 0; a < commit.removed.length; a++ ) {
