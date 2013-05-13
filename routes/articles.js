@@ -10,6 +10,11 @@ var presence = require('../scripts/presence.js');
             res.redirect(301, "/"); 
             return; 
         }
+        
+        if(process.index.threeohone[key]) {
+            res.redirect(301, "/" + process.index.threeohone[key]); 
+            return; 
+        }
         var file = path.normalize(path.join(__dirname, '../../cache', process.index.articles[key].file));
 
         fs.readFile(file, "utf-8", function(err, data) {
