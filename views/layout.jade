@@ -1,7 +1,7 @@
 doctype 5
 html
   head
-    link(rel='stylesheet', href='/style/style.css')
+    link(rel='stylesheet', href=versionPath('/style/style.css'))
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Ovo|Open+Sans:400italic,600italic,400,300,600')
     meta(name='description', content= summary)
     meta(name='keywords', content= keywords)
@@ -13,10 +13,10 @@ html
     meta(name="twitter:domain", content="latetotheparty.co")
     meta(name="viewport", content="width=device-width, user-scalable=no")
     title= title
-    link(rel="apple-touch-icon", href="icons/site-icon.png")
-    link(rel="icon", href="icons/site-icon.png")
+    link(rel="apple-touch-icon", href=versionPath('/icons/site-icon.png'))
+    link(rel="icon", href=versionPath('/icons/site-icon.png'))
     //[if IE]>
-      link(rel="shortcut icon", href="icons/site-icon.ico")
+      link(rel="shortcut icon", href=versionPath('/icons/site-icon.ico'))
         //<![endif]
     script
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
