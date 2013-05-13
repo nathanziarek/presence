@@ -85,18 +85,17 @@ module.exports = {
         githubInfo.path = filename;
             
         github.repos.getContent(githubInfo, function(err, data){
+        
+            var oldId = "";
 
             if (err) { console.log(err); return }
             
             data = new Buffer(data.content, data.encoding).toString("utf8");
             
-            //if(process.index.mapping[filename] == undefined) {
-                // new
-            //} else {
-            //    tmpId = process.index.mapping[filename];
-            //    tmpLnk = process.index.articles[tmpId].href;
-            //    process.index.articles[tmpId] = { statu
-            //}
+            if(process.index.mapping[filename] != undefined) {
+                var oldId = process.index.mapping[filename];
+                module.exports.removeFromCache(filename);
+            }
 
             data = module.exports.parse(data);
             data.id = module.exports.createFileId(data.title);
@@ -112,6 +111,11 @@ module.exports = {
             process.index.articles[data.id] = data;
             process.index.mapping[data.filename] = data.id;
             
+            if(oldId != data.id) { 
+                if(!process.index.threeohone) { process.index.threeohone = {} }
+                process.index.threeohone[oldId] = data.id 
+            };
+            
             fs.writeFile(path.join(cache, "index.json"), JSON.stringify(process.index));
             
         });
@@ -119,13 +123,10 @@ module.exports = {
     },
     
     removeFromCache: function(filename) {
-        var id = process.index.articles[filename];
-        var file = process.index.articles[id].file;
+        var id = process.index.mapping[filename];
+        var file = id + ".json";
         fs.unlinkSync(path.join(cache, file));
         delete process.index.articles[id];
-    },
-    
-    reIndex: function() {
     }
     
 }
