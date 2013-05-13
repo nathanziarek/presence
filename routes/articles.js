@@ -7,6 +7,9 @@ var presence = require('../scripts/presence.js');
         
         var key = req.url.replace(/^\//, "");
         
+        console.log("KEY", key);
+        console.log("THREEOHONE", process.index.threeohone[key]);
+        
         if(process.index.threeohone[key]) {
             res.redirect(301, "/" + process.index.threeohone[key]); 
             return; 
