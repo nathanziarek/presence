@@ -3,7 +3,7 @@ extends layout
 block content
   ul(class='pageContainer', itemscope, itemtype="http://schema.org/ItemList")
       each item in links
-          li(class="articleBlock", itemprop="itemListElement", itemscope, itemtype="http://schema.org/Article")
+          li(class="articleBlock", data-decay= item.decay, itemprop="itemListElement", itemscope, itemtype="http://schema.org/Article")
               p(itemprop="name", class="title")
                   a(href=item.href, itemprop="url")= item.title
               p(itemprop="description", class='summary')= item.summary
