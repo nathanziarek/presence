@@ -6,7 +6,11 @@ var fs = require("fs"),
 
 exports.index = function(req, res){
 
-    var articleList = [];
+    var articleList = [],
+        maxDate = new Date("1/1/1960"),
+        minDate = new Date(),
+        scaleTop = 1,
+        scaleBot = .5;
 
     for (key in process.index.articles) {
         if (process.index.articles.hasOwnProperty(key)) {
@@ -17,8 +21,18 @@ exports.index = function(req, res){
                    summary: process.index.articles[key].summary,
                    "publishedOn": new Date(process.index.articles[key]['publishedOn']).toString()
                });
+               maxDate = Math.max(maxDate, new Date(process.index.articles[key]['publishedOn']));
+               minDate = Math.min(minDate, new Date(process.index.articles[key]['publishedOn']));
            }
         }
+    }
+    
+    var rangeDate = maxDate - minDate;
+    var rangeScale = scaleTop - scaleBot;
+    for(i = 0; i < articleList.length; i++) {
+        difDate = maxDate - new Date(articleList[i]["publishedOn"]);
+        normDate = 1-(difDate/rangeDate);
+        articleList[i].decay = Math.floor((rangeScale * normDate + scaleBot) * 10);
     }
 
     articleList.sort(function(a, b){
